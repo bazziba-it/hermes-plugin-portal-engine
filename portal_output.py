@@ -4,7 +4,7 @@ Supports multiple output protocols:
 - NDI (cross-platform, professional) — requires `pip install ndi-python` or `pip install PyNDI`
 - Spout (Windows) — requires `pip install spout-gl` 
 - Syphon (macOS) — requires `pip install syphon`
-- Virtual Camera (Linux v4l2loopback) — requires `pip install pyvirtualcam` + `sudo modprobe v4l2loopback`
+- Virtual Camera (Linux v4l2loopback) — requires `pip install pyvirtualcam` + loading the v4l2loopback kernel module
 - Shared Memory (local apps) — pure Python, no extra deps
 """
 
@@ -182,11 +182,11 @@ class VirtualCameraSender(OutputSender):
             return True
         except ImportError:
             logger.error("pyvirtualcam not installed. Run: pip install pyvirtualcam")
-            logger.error("Also need: sudo modprobe v4l2loopback devices=1 video_nr=10 card_label='PortalEngine' exclusive_caps=1")
+            logger.error("Also load the v4l2loopback kernel module as root: modprobe v4l2loopback devices=1 video_nr=10 card_label='PortalEngine' exclusive_caps=1")
             return False
         except Exception as e:
             logger.error(f"VirtualCamera sender failed: {e}")
-            logger.error("Ensure v4l2loopback is loaded: sudo modprobe v4l2loopback")
+            logger.error("Ensure the v4l2loopback kernel module is loaded: modprobe v4l2loopback")
             return False
 
     def _find_virtual_device(self) -> int:

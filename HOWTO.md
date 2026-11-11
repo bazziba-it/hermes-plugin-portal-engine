@@ -423,8 +423,9 @@ Agent: portal_syphon_stop()
 ```bash
 hermes plugins disable portal-engine
 hermes plugins remove portal-engine
-rm -rf ~/.hermes/plugins/portal_engine
-rm -rf ~/.config/portal_engine
+# That also removes the plugin directory under ~/.hermes/plugins/ and the
+# calibration profiles under ~/.config/portal_engine/ (delete that folder
+# manually if you want to keep profiles).
 ```
 
 ---

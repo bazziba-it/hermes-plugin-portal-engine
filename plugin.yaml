@@ -1,7 +1,7 @@
 name: portal-engine
 version: 0.1.0
 description: "Cross-platform interactive portal engine — OpenCV + MediaPipe hand tracking with real-time visual effects. Outputs via Syphon (macOS), Spout (Windows), NDI (cross-platform), or virtual camera (Linux) for MadMapper/Resolume/TouchDesigner integration."
-author: NousResearch Hackathon
+author: bazziba-it
 license: MIT
 kind: backend
 requires_hermes: ">=0.21"

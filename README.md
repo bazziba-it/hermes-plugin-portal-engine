@@ -89,7 +89,7 @@ pip install ndi-python          # + install NDI 5 SDK from ndi.video
 pip install spout-gl
 
 # Virtual Camera (Linux)
-pip install pyvirtualcam        # + sudo modprobe v4l2loopback
+pip install pyvirtualcam        # + load v4l2loopback kernel module as root (modprobe v4l2loopback)
 
 # All platforms: Shared Memory (fallback, always works)
 # No extra install needed
