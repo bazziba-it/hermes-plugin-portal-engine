@@ -1,0 +1,45 @@
+name: portal-engine
+version: 0.1.0
+description: "Cross-platform interactive portal engine — OpenCV + MediaPipe hand tracking with real-time visual effects. Outputs via Syphon (macOS), Spout (Windows), NDI (cross-platform), or virtual camera (Linux) for MadMapper/Resolume/TouchDesigner integration."
+author: NousResearch Hackathon
+license: MIT
+kind: backend
+requires_hermes: ">=0.21"
+python_runtime: ">=3.8,<3.13"  # MediaPipe wheels only up to Python 3.12
+provides_tools:
+  - portal_start
+  - portal_stop
+  - portal_calibrate
+  - portal_status
+  - portal_list_cameras
+  - portal_syphon_start
+  - portal_syphon_stop
+  - portal_syphon_status
+provides_hooks:
+  - on_session_end
+requires_env: []
+config_schema:
+  default_camera_index:
+    type: int
+    default: 0
+    description: "Default camera index to use (0 = built-in, 1+ = external)"
+  effect_intensity:
+    type: number
+    default: 1.0
+    description: "Visual effect intensity multiplier (0.1 - 3.0)"
+  portal_width:
+    type: int
+    default: 1920
+    description: "Portal canvas width in pixels (screen/projector resolution)"
+  portal_height:
+    type: int
+    default: 1080
+    description: "Portal canvas height in pixels"
+  show_fps:
+    type: bool
+    default: True
+    description: "Display FPS counter in the portal window"
+  enable_projector_mode:
+    type: bool
+    default: False
+    description: "Enable projector-specific rendering (fullscreen on secondary display)"
